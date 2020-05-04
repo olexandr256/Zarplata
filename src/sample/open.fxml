@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.OpenController">
+   <top>
+      <ButtonBar buttonOrder="" nodeOrientation="LEFT_TO_RIGHT" prefHeight="47.0" prefWidth="698.0" BorderPane.alignment="CENTER">
+         <buttons>
+            <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="648.0">
+               <children>
+                  <Label fx:id="message" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="42.0" prefWidth="427.0">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></Label>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#on_import" prefHeight="42.0" prefWidth="42.0" styleClass="b_import" stylesheets="@css/buttons.css" />
+                  <Button mnemonicParsing="false" onAction="#on_delete" prefHeight="42.0" prefWidth="43.0" styleClass="b_delete" stylesheets="@css/buttons.css" />
+                  <Button mnemonicParsing="false" onAction="#on_update" prefHeight="42.0" prefWidth="42.0" styleClass="b_update" stylesheets="@css/buttons.css" />
+                  <Button layoutX="384.0" layoutY="10.0" mnemonicParsing="false" onAction="#on_convert" prefHeight="42.0" prefWidth="42.0" styleClass="b_convert" stylesheets="@css/buttons.css" />
+                  <Button mnemonicParsing="false" onAction="#on_export" prefHeight="42.0" prefWidth="42.0" styleClass="b_export" stylesheets="@css/buttons.css" />
+               </children>
+            </HBox>
+         </buttons>
+      </ButtonBar>
+   </top>
+   <bottom>
+      <ButtonBar buttonOrder="" prefHeight="40.0" prefWidth="698.0" BorderPane.alignment="CENTER">
+        <buttons>
+          <Button fx:id="button_open" mnemonicParsing="false" onAction="#open" prefHeight="33.0" prefWidth="143.0" styleClass="b_open" stylesheets="@css/buttons.css" />
+        </buttons>
+      </ButtonBar>
+   </bottom>
+   <center>
+      <TableView fx:id="tableFiles" editable="true" onMouseClicked="#on_selected" prefHeight="395.0" prefWidth="698.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="numCol" prefWidth="48.0" text="#" />
+          <TableColumn fx:id="nameCol" prefWidth="411.0" text="Назва файла" />
+            <TableColumn fx:id="dateCol" prefWidth="229.0" text="Дата" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>

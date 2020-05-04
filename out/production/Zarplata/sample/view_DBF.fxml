@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane
+        maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ViewDBFController">
+   <center>
+      <TableView fx:id="tablePerson" editable="true" BorderPane.alignment="CENTER">
+         <columns>
+            <TableColumn fx:id="card_no" prefWidth="75.0" text="CARD_NO" />
+            <TableColumn fx:id="lstbl" prefWidth="75.0" text="LSTBL" />
+            <TableColumn fx:id="fam" prefWidth="75.0" text="FAM" />
+            <TableColumn fx:id="name" prefWidth="75.0" text="NAME" />
+            <TableColumn fx:id="ot" prefWidth="75.0" text="OT" />
+            <TableColumn fx:id="rlsum" prefWidth="75.0" text="RLSUM" />
+            <TableColumn fx:id="inn" prefWidth="75.0" text="INN" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy></TableView>
+   </center>
+   <bottom>
+      <Label fx:id="filename" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <Label fx:id="massage" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="30.0" prefWidth="567.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>
