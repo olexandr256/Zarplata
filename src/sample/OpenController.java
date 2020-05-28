@@ -285,14 +285,17 @@ public class OpenController implements Initializable {
 
                 if (select.getFormat().equals("XLS")){
                     B_export.setDisable(false);
-                } else {
+                    B_convert.setDisable(true);
+                }
+
+                if(select.getFormat().equals("DBF")) {
                     B_export.setDisable(true);
+                    B_convert.setDisable(false);
                 }
             }
 
         }
 
-        B_convert.setDisable(false);
         B_delete.setDisable(false);
         B_open.setDisable(false);
 
