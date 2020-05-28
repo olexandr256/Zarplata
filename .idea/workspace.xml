@@ -64,7 +64,9 @@
     <breakpoint_rules converted="true" />
   </component>
   <component name="FavoritesManager">
-    <favorites_list name="JavaFxApplication" />
+    <favorites_list name="JavaFxApplication">
+      <favorite_root url="file://$PROJECT_DIR$/out/artifacts/Zarplata_jar/zarplata.v.1.0.0.exe" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+    </favorites_list>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -316,10 +318,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="273" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1587502446113" />
-    <state x="275" y="0" key="CommitChangelistDialog2" timestamp="1590699404074">
+    <state x="275" y="0" key="CommitChangelistDialog2" timestamp="1590700260441">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590699404074" />
+    <state x="275" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590700260441" />
     <state x="437" y="79" key="DetectedRootsChooserDialog" timestamp="1587031719516">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -328,22 +330,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="389" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590689987607" />
-    <state width="1323" height="156" key="GridCell.Tab.0.bottom" timestamp="1590699689052">
+    <state width="1323" height="220" key="GridCell.Tab.0.bottom" timestamp="1590700271038">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590699689052" />
-    <state width="1323" height="156" key="GridCell.Tab.0.center" timestamp="1590699689051">
+    <state width="1323" height="220" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590700271038" />
+    <state width="1323" height="220" key="GridCell.Tab.0.center" timestamp="1590700271038">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590699689051" />
-    <state width="1323" height="156" key="GridCell.Tab.0.left" timestamp="1590699689051">
+    <state width="1323" height="220" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590700271038" />
+    <state width="1323" height="220" key="GridCell.Tab.0.left" timestamp="1590700271038">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590699689051" />
-    <state width="1323" height="156" key="GridCell.Tab.0.right" timestamp="1590699689051">
+    <state width="1323" height="220" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590700271038" />
+    <state width="1323" height="220" key="GridCell.Tab.0.right" timestamp="1590700271038">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590699689051" />
+    <state width="1323" height="220" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590700271038" />
     <state x="163" y="0" key="SettingsEditor" timestamp="1590689990606">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
