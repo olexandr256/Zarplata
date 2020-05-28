@@ -8,40 +8,69 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.OpenController">
    <top>
-      <ButtonBar buttonOrder="" nodeOrientation="LEFT_TO_RIGHT" prefHeight="47.0" prefWidth="698.0" BorderPane.alignment="CENTER">
+      <ButtonBar buttonOrder="" nodeOrientation="LEFT_TO_RIGHT" prefHeight="47.0" prefWidth="698.0" styleClass="b_bar" stylesheets="@css/buttons.css" BorderPane.alignment="CENTER">
          <buttons>
-            <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="648.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="688.0">
                <children>
-                  <Label fx:id="message" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="42.0" prefWidth="427.0">
+                  <Label fx:id="message" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="52.0" prefWidth="303.0" stylesheets="@css/buttons.css" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="10.0" />
-                     </HBox.margin></Label>
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#on_import" prefHeight="42.0" prefWidth="42.0" styleClass="b_import" stylesheets="@css/buttons.css" />
-                  <Button mnemonicParsing="false" onAction="#on_delete" prefHeight="42.0" prefWidth="43.0" styleClass="b_delete" stylesheets="@css/buttons.css" />
-                  <Button mnemonicParsing="false" onAction="#on_update" prefHeight="42.0" prefWidth="42.0" styleClass="b_update" stylesheets="@css/buttons.css" />
-                  <Button layoutX="384.0" layoutY="10.0" mnemonicParsing="false" onAction="#on_convert" prefHeight="42.0" prefWidth="42.0" styleClass="b_convert" stylesheets="@css/buttons.css" />
-                  <Button mnemonicParsing="false" onAction="#on_export" prefHeight="42.0" prefWidth="42.0" styleClass="b_export" stylesheets="@css/buttons.css" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#on_import" prefHeight="91.0" prefWidth="77.0" styleClass="b_all" stylesheets="@css/buttons.css" text="Імпорт">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="1.0" right="5.0" />
+                     </HBox.margin></Button>
+                  <Button fx:id="B_convert" disable="true" layoutX="384.0" layoutY="10.0" mnemonicParsing="false" onAction="#on_convert" prefHeight="47.0" prefWidth="124.0" styleClass="b_all" stylesheets="@css/buttons.css" text="Конвертувати">
+                     <HBox.margin>
+                        <Insets bottom="1.0" right="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+                  <Button fx:id="B_export" disable="true" mnemonicParsing="false" onAction="#on_export" prefHeight="47.0" prefWidth="80.0" styleClass="b_all" stylesheets="@css/buttons.css" text="Експорт">
+                     <HBox.margin>
+                        <Insets bottom="1.0" right="1.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
                </children>
             </HBox>
          </buttons>
       </ButtonBar>
    </top>
    <bottom>
-      <ButtonBar buttonOrder="" prefHeight="40.0" prefWidth="698.0" BorderPane.alignment="CENTER">
+      <ButtonBar buttonOrder="" prefHeight="21.0" prefWidth="698.0" styleClass="b_bar" stylesheets="@css/buttons.css" BorderPane.alignment="CENTER">
         <buttons>
-          <Button fx:id="button_open" mnemonicParsing="false" onAction="#open" prefHeight="33.0" prefWidth="143.0" styleClass="b_open" stylesheets="@css/buttons.css" />
+          <Button fx:id="B_delete" disable="true" minWidth="72.0" mnemonicParsing="false" onAction="#on_delete" prefHeight="31.0" prefWidth="143.0" styleClass="b_del" stylesheets="@css/buttons.css" text="Видалити">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="B_open" disable="true" layoutX="565.0" layoutY="10.0" mnemonicParsing="false" onAction="#open" prefHeight="47.0" prefWidth="143.0" styleClass="b_open" stylesheets="@css/buttons.css" text="Відкрити">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
         </buttons>
       </ButtonBar>
    </bottom>
    <center>
-      <TableView fx:id="tableFiles" editable="true" onMouseClicked="#on_selected" prefHeight="395.0" prefWidth="698.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableFiles" editable="true" onMouseClicked="#on_selected" stylesheets="@css/table.css" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="numCol" prefWidth="48.0" text="#" />
-          <TableColumn fx:id="nameCol" prefWidth="411.0" text="Назва файла" />
-            <TableColumn fx:id="dateCol" prefWidth="229.0" text="Дата" />
+          <TableColumn fx:id="numCol" prefWidth="48.0" styleClass="table-column-head" text="#" />
+          <TableColumn fx:id="nameCol" onEditCommit="#on_edit_name" prefWidth="233.0" styleClass="table-column-head" text="Назва файла" />
+            <TableColumn fx:id="dateCol" prefWidth="200.0" styleClass="table-column-head" text="Дата" />
+            <TableColumn fx:id="platizhCol" maxWidth="234.0" minWidth="-1.0" onEditCommit="#on_edit_platizh" prefWidth="216.0" text="Призначення платежу" />
         </columns>
       </TableView>
    </center>

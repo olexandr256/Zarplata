@@ -4,19 +4,21 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class FileList {
+    public StringProperty getPlatizh;
     private StringProperty format;
     private StringProperty name;
     private StringProperty date;
 
-    public FileList(String format, String name, String date) {
+    public FileList(String format, String name, String date,String platizh) {
         this.format = new SimpleStringProperty(format);
         this.name = new SimpleStringProperty(name);
         this.date = new SimpleStringProperty(date);
+        this.getPlatizh = new SimpleStringProperty(platizh);
     }
 
     @Override
     public String toString() {
-        return getFormat()+","+getName()+","+getDate();
+        return getFormat()+","+getName()+","+getDate()+","+getPlatizh();
     }
 
     public String getFormat() {
@@ -53,5 +55,17 @@ public class FileList {
 
     public void setDate(String date) {
         this.date.set(date);
+    }
+
+    public String getPlatizh() {
+        return getPlatizh.get();
+    }
+
+    public StringProperty getPlatizhProperty() {
+        return getPlatizh;
+    }
+
+    public void setPlatizh(String getPlatizh) {
+        this.getPlatizh.set(getPlatizh);
     }
 }

@@ -2,14 +2,15 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -20,15 +21,23 @@ import java.awt.*;
 import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class OpenController implements Initializable {
 
+    @FXML   private Button B_convert;
+    @FXML    private Button B_export;
+    @FXML    private Button B_delete;
+    @FXML    private Button B_open;
+
+
     @FXML    private TableView<FileList> tableFiles;
     @FXML    private TableColumn<FileList, String> numCol;
     @FXML    private TableColumn<FileList, String> nameCol;
     @FXML    private TableColumn<FileList, String> dateCol;
+    @FXML    private TableColumn<FileList, String> platizhCol;
     @FXML    private Label message;
 
     //список файлів у внітрішній базі
@@ -39,19 +48,22 @@ public class OpenController implements Initializable {
         numCol.setCellValueFactory(cellData -> cellData.getValue().formatProperty());
         nameCol.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         dateCol.setCellValueFactory(cell -> cell.getValue().dateProperty());
+        platizhCol.setCellValueFactory(cell -> cell.getValue().getPlatizhProperty());
 
         try {
             readRows();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        tableFiles.setItems(fileList);
-    }
 
+        tableFiles.setItems(fileList);
+        tableFiles.setEditable(true);
+        nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        platizhCol.setCellFactory(TextFieldTableCell.forTableColumn());
+    }
     /*
         робота із файлом "list.ini"
      */
-
     //зчитати рядки із файла "list.ini"
     private void readRows() throws IOException {
         fileList.clear();
@@ -66,9 +78,10 @@ public class OpenController implements Initializable {
                 //друк даних із конфігурації
 //                System.out.println(line);
                 String[] list = line.split(",");
-
-                fileList.add(new FileList(list[0],list[1],list[2]));
-
+                if(list.length == 4)
+                    fileList.add(new FileList(list[0],list[1],list[2],list[3]));
+                else
+                    fileList.add(new FileList(list[0],list[1],list[2],""));
             }
             scan.close();
             fileReader.close();
@@ -90,14 +103,21 @@ public class OpenController implements Initializable {
            writer.close();
     }
     //додати рядок у список файлів
-    private void addRow(File selectedFile) throws IOException {
+    private void addRow(File selectedFile,String platizh) throws IOException {
         String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
         String filename = selectedFile.getName();
         String format = filename.substring(filename.length()-3).toUpperCase();
-        FileList row = new FileList(format,filename,date);
+
+        String newFilename = filename.substring(0,filename.length()-4);
+
+        FileList row = new FileList(format,newFilename,date,platizh);
+        System.out.println(row.toString());
         fileList.add(row);
 
         saveRows();
+    }
+    private void addRow(File selectedFile) throws IOException {
+        addRow(selectedFile,"");
     }
     //видалити запис із файла "list.ini"
     private void deleteRow(FileList selectRow) throws IOException {
@@ -114,19 +134,16 @@ public class OpenController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Виберіть дію");
         alert.setHeaderText("Видалити файл \""+filename+"\" із бази?");
-        alert.setContentText("Цей файл видаляється лише із внутрішньої бази програми.");
+//        alert.setContentText("Цей файл видаляється лише із внутрішньої бази програми.");
+//        alert.set
+        ButtonType buttonTypeOne = new ButtonType("Так", ButtonBar.ButtonData.APPLY);
+        ButtonType buttonTypeCancel = new ButtonType("Ні", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-
-        ButtonType buttonTypeOne = new ButtonType("Видалити");
-        ButtonType buttonTypeCancel = new ButtonType("Відмінити", ButtonBar.ButtonData.CANCEL_CLOSE);
-
-        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeCancel);
+        alert.getButtonTypes().setAll(buttonTypeCancel, buttonTypeOne);
 
         Optional<ButtonType> result = alert.showAndWait();
         return result.get() == buttonTypeOne;
     }
-
-
     /*
         методи для роботи із даними імпорт, експорт, відкрити dbf або xls файли
      */
@@ -144,19 +161,15 @@ public class OpenController implements Initializable {
             File newFile = new File(selectedFile.getName());
             if(!newFile.exists())
             Files.copy(selectedFile.toPath(),newFile.toPath());
-
             addRow(selectedFile);
             message.setText("файл \""+selectedFile.getName()+"\" імпортовано");
         }
     }
-
     private void exportFile(String filename) throws IOException {
         String format = filename.substring(filename.length()-3).toLowerCase();
 
         if(format.equals("xls")){
-
             File oldFile = new File(filename);
-
             FileChooser fileChooser2 = new FileChooser();
             fileChooser2.setTitle("Експортувати файл");
             fileChooser2.setInitialFileName(filename);
@@ -166,10 +179,14 @@ public class OpenController implements Initializable {
             Stage stage = new Stage();
 
             File selectedFile = fileChooser2.showSaveDialog(stage);
-
             if (selectedFile != null) {
+                if(new File(String.valueOf(selectedFile)).exists()){
+                    Files.delete(selectedFile.toPath());
+                }
                 Files.copy(oldFile.toPath(),selectedFile.toPath());
-                message.setText("файл \""+selectedFile.getName()+"\" імпортовано");
+                message.setText("файл \""+filename+"\" експортовано");
+            }else{
+
             }
         }
     }
@@ -179,24 +196,19 @@ public class OpenController implements Initializable {
         message.setText(path.toString());
         FXMLLoader loader = new FXMLLoader(path);
         Parent root = loader.load();
-
         ViewDBFController controller = loader.getController();
         controller.transferMessege(filename);
 //        loader.setController(controller);
-
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setTitle("Зарплатна відомість");
         stage.show();
-
     }
     public void open_xls(String filename) throws IOException {
         File file = new File (filename);
         Desktop desktop = Desktop.getDesktop();
         desktop.open(file);
     }
-
-
 
     /*
         публічні методи для роботи із кнопками
@@ -218,18 +230,16 @@ public class OpenController implements Initializable {
     //натискання кнопки "експортувати"
     public void on_export() throws IOException {
         FileList select = tableFiles.getSelectionModel().getSelectedItem();
-        String filename = select.getName();
-
-        exportFile(filename);
+        exportFile(select.getName()+"."+select.getFormat());
 
     }
 
     //натискання кнопки "конвертувати"
     public void on_convert()throws IOException{
         FileList select = tableFiles.getSelectionModel().getSelectedItem();
-        String selectFileName = select.getName();
+        String selectFileName = select.getName()+"."+select.getFormat();
 
-        String format = selectFileName.substring(selectFileName.length()-3).toLowerCase();
+        String format = select.getFormat().toLowerCase();
 //        System.out.println(format);
         if (format.equals("dbf")){
             ObservableList<Person> listP = FXCollections.observableArrayList();
@@ -240,9 +250,9 @@ public class OpenController implements Initializable {
 
             listP.clear();
             listP.addAll(list);
-            ExcelReader.saveFile(listP,newFileName);
+            ExcelReader.saveFile(listP,newFileName,select.getPlatizh());// RLKOD_Z - призначення платежу
 
-            addRow(new File(newFileName));
+            addRow(new File(newFileName),select.getPlatizh());
         }
 
     }
@@ -251,41 +261,79 @@ public class OpenController implements Initializable {
     public void on_delete() throws IOException {
         FileList select = tableFiles.getSelectionModel().getSelectedItem();
         if(select != null){
-            if(deleteDialog(select.getName())){
+            if(deleteDialog(select.getName()+"."+select.getFormat())){
                 deleteRow(select);
-                File file = new File(select.getName());
+                File file = new File(select.getName()+"."+select.getFormat());
                 if(file.exists()){
                     Files.delete(file.toPath());
                 }
 
-                message.setText("файл \""+select.getName()+"\" видалений");
+                message.setText("файл \""+select.getName()+"."+select.getFormat()+"\" видалений");
             }
         }
     }
 
     //вибір файла із списку tableView
     public void on_selected(MouseEvent mouseEvent) throws IOException {
-        if(mouseEvent.getClickCount() == 2){
-            open();
-        }
+//        if(mouseEvent.getClickCount() == 2){
+//            open();
+//        }
         if(mouseEvent.getClickCount() == 1){
             FileList select = tableFiles.getSelectionModel().getSelectedItem();
             if(select != null){
-                message.setText(select.getName());
+                message.setText(select.getName()+"."+select.getFormat());
+
+                if (select.getFormat().equals("XLS")){
+                    B_export.setDisable(false);
+                } else {
+                    B_export.setDisable(true);
+                }
             }
+
         }
 
-    }
+        B_convert.setDisable(false);
+        B_delete.setDisable(false);
+        B_open.setDisable(false);
 
+    }
+    public void on_edit_name(TableColumn.CellEditEvent event) throws IOException {
+        FileList select = tableFiles.getSelectionModel().getSelectedItem();
+        //   стара назва файлу
+        Path oldname = new File(select.getName()+"."+select.getFormat()).toPath();
+
+        //   видалення старого запису із списку
+        fileList.remove(select);
+        //заміна назви файлу на нову
+        select.setName(event.getNewValue().toString());
+
+        //   нова назва файлу
+        Path newname = new File(select.getName()+"."+select.getFormat()).toPath();
+
+        //  копіювання файла
+        Files.copy(oldname,newname);
+        //  видалення старого файла
+        Files.delete(oldname);
+
+        //додати новий файл у таблицю
+        addRow(new File(select.getName()+"."+select.getFormat()),select.getPlatizh());
+    }
+    public void on_edit_platizh(TableColumn.CellEditEvent event) throws IOException {
+        FileList select = tableFiles.getSelectionModel().getSelectedItem();
+        fileList.remove(select);
+        select.setPlatizh(event.getNewValue().toString());
+        addRow(new File(select.getName()+"."+select.getFormat()),select.getPlatizh());
+    }
     //натискання кнопки "відкрити"
     public void open() throws IOException {
         FileList select = tableFiles.getSelectionModel().getSelectedItem();
-        String format = select.getName().substring(select.getName().length()-3).toLowerCase();
+        String format = select.getFormat().toLowerCase();
         if(format.equals("xls")){
-            open_xls(select.getName());
+            open_xls(select.getName()+"."+select.getFormat());
         }
         if(format.equals("dbf")){
-            open_dbf(select.getName());
+            open_dbf(select.getName()+"."+select.getFormat());
+            System.out.println(select.getName()+"."+select.getFormat());
         }
     }
 }

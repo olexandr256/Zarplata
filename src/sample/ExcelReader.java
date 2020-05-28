@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class ExcelReader {
-    public static void saveFile(ObservableList<Person> listPerson, String filename) throws IOException {
+    public static void saveFile(ObservableList<Person> listPerson, String filename, String platizh) throws IOException {
         Workbook book = new HSSFWorkbook(); //створення книги
         Sheet sheet = book.createSheet("zarplata");  //створення листа
 
@@ -26,8 +26,10 @@ public class ExcelReader {
         LSTBL.setCellValue("LSTBL");
         Cell INN = row.createCell(2);
         INN.setCellValue("INN");
+        //призначення платежу
         Cell RLKOD = row.createCell(3);
         RLKOD.setCellValue("RLKOD");
+
         Cell CARD_NO = row.createCell(4);
         CARD_NO.setCellValue("CARD_NO");
         int num = 0;
@@ -41,7 +43,7 @@ public class ExcelReader {
                 rowElem.createCell(0).setCellValue(String.valueOf(res).replace(".",","));
                 rowElem.createCell(1).setCellValue(elem.getLstbl());
                 rowElem.createCell(2).setCellValue(elem.getInn());
-                rowElem.createCell(3).setCellValue("");
+                rowElem.createCell(3).setCellValue(platizh);
                 rowElem.createCell(4).setCellValue(elem.getCard_no());
 
             }

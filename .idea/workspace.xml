@@ -6,7 +6,45 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="оновлення дизайну">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BANK0413.DBF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BANK0413.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/list.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Zarplata_jar/Zarplata.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Zarplata_jar/Zarplata.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/META-INF/Zarplata.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/ExcelReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarplata/sample/ExcelReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarplata/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/OpenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarplata/sample/OpenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/ViewDBFController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarplata/sample/ViewDBFController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/css/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarplata/sample/css/buttons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/css/convert.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/css/dbf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/css/del.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/css/open.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/css/update.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/css/xls.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/models/FileList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarplata/sample/models/FileList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/models/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarplata/sample/models/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/open.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarplata/sample/open.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarplata/sample/view_DBF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarplata/sample/view_DBF.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ExcelReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ExcelReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/OpenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/OpenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ViewDBFController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ViewDBFController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/css/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/css/buttons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/css/convert.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/css/dbf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/css/del.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/css/open.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/css/update.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/css/xls.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/FileList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/models/FileList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/models/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/open.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/open.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/view_DBF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view_DBF.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,8 +108,13 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1aWnq1xKmDlq9XVp2CEWeCla2aw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -88,6 +131,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
@@ -97,6 +141,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -186,6 +231,18 @@
       </method>
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -206,25 +263,47 @@
       <workItem from="1587543808445" duration="888000" />
       <workItem from="1587546028616" duration="5272000" />
       <workItem from="1588603274849" duration="1428000" />
+      <workItem from="1590649361424" duration="5073000" />
+      <workItem from="1590676834836" duration="249000" />
+      <workItem from="1590678460974" duration="3230000" />
+      <workItem from="1590683936115" duration="8150000" />
+      <workItem from="1590696706757" duration="2642000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="оновлення дизайну" />
+    <option name="LAST_COMMIT_MESSAGE" value="оновлення дизайну" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="428" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586875137062">
+    <state x="275" y="22" key="#Notifications" timestamp="1590687112930">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="428" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1586875137062" />
-    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1587548594336">
+    <state x="275" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1590687112930" />
+    <state x="428" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590691390012">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1587548594336" />
+    <state x="428" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1590691390012" />
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1590689535773">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1590689535773" />
     <state x="412" y="148" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1587549920197">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -233,45 +312,57 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="273" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1587502446113" />
+    <state x="275" y="0" key="CommitChangelistDialog2" timestamp="1590696958256">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590696958256" />
     <state x="437" y="79" key="DetectedRootsChooserDialog" timestamp="1587031719516">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="437" y="79" key="DetectedRootsChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1587031719516" />
-    <state x="389" y="105" key="FileChooserDialogImpl" timestamp="1587495337579">
+    <state x="389" y="105" key="FileChooserDialogImpl" timestamp="1590689987607">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="389" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587495337579" />
-    <state width="1323" height="103" key="GridCell.Tab.0.bottom" timestamp="1587551659203">
+    <state x="389" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590689987607" />
+    <state width="1323" height="156" key="GridCell.Tab.0.bottom" timestamp="1590699248668">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="103" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587551659203" />
-    <state width="1323" height="103" key="GridCell.Tab.0.center" timestamp="1587551659202">
+    <state width="1323" height="156" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590699248668" />
+    <state width="1323" height="156" key="GridCell.Tab.0.center" timestamp="1590699248668">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="103" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587551659202" />
-    <state width="1323" height="103" key="GridCell.Tab.0.left" timestamp="1587551659202">
+    <state width="1323" height="156" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590699248668" />
+    <state width="1323" height="156" key="GridCell.Tab.0.left" timestamp="1590699248667">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="103" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587551659202" />
-    <state width="1323" height="103" key="GridCell.Tab.0.right" timestamp="1587551659202">
+    <state width="1323" height="156" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590699248667" />
+    <state width="1323" height="156" key="GridCell.Tab.0.right" timestamp="1590699248668">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="103" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587551659202" />
-    <state x="163" y="0" key="SettingsEditor" timestamp="1587549921629">
+    <state width="1323" height="156" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590699248668" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1590689990606">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587549921629" />
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590689990606" />
+    <state x="567" y="280" key="VCS.EditChangelistDialog" timestamp="1590699289628">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="567" y="280" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1590699289628" />
     <state x="487" y="233" key="classpath-attribute-editor" timestamp="1587495347923">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="487" y="233" key="classpath-attribute-editor/0.0.1366.728@0.0.1366.728" timestamp="1587495347923" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1588603274400">
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1590696705642">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1588603274400" />
-    <state x="138" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1587036177463">
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1590696705642" />
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590699100677">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="138" y="0" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1587036177463" />
+    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1590699100677" />
+    <state x="138" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1590689561293">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="138" y="0" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1590689561293" />
   </component>
 </project>

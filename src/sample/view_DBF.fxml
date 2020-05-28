@@ -7,10 +7,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane
-        maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ViewDBFController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="810.0" styleClass="b_bar" stylesheets="@css/buttons.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ViewDBFController">
    <center>
-      <TableView fx:id="tablePerson" editable="true" BorderPane.alignment="CENTER">
+      <TableView fx:id="tablePerson" editable="true" stylesheets="@css/table.css" BorderPane.alignment="CENTER">
          <columns>
             <TableColumn fx:id="card_no" prefWidth="75.0" text="CARD_NO" />
             <TableColumn fx:id="lstbl" prefWidth="75.0" text="LSTBL" />

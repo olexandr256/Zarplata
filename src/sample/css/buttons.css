@@ -1,22 +1,54 @@
-.b_import {
-    -fx-background-image: url("dbf.png");
-}
 
-.b_delete {
-    -fx-background-image: url("del.png");
+.b_all {
+    -fx-text-fill: #364754;
+    -fx-background-color: #93D1EE;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-start-margin: 10px;
 }
-
-.b_update {
-    -fx-background-image: url("update.png");
+.b_all:hover{
+    -fx-background-color: #679bb4;
+    -fx-text-fill: #F9F9FA;
+    -fx-effect: dropshadow(three-pass-box, rgba(32, 49, 59, 0.49), 8, 0, 0, 0);
+    -fx-cursor: hand;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
 }
-
-.b_convert {
-    -fx-background-image: url("convert.png");
-}
-.b_export {
-    -fx-background-image: url("xls.png");
+.b_bar {
+    -fx-background-color: #364754;
 }
 
 .b_open {
-    -fx-background-image: url("open.png");
+    -fx-background-color: #fff942;
+    -fx-text-fill: #721582;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+.b_open:hover {
+    -fx-background-color: #d6b931;
+    -fx-text-fill: #f7f6ff;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(32, 49, 59, 0.49), 8, 0, 0, 0);
+    -fx-cursor: hand;
+}
+
+.b_del {
+    -fx-background-color: #ff0a00;
+    -fx-text-fill: #feffe9;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+.b_del:hover {
+    -fx-background-color: #ba0900;
+    -fx-text-fill: #f7f6ff;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(32, 49, 59, 0.49), 8, 0, 0, 0);
+    -fx-cursor: hand;
+}
+
+
+.label {
+    -fx-text-fill: white;
 }

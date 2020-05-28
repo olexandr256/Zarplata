@@ -62,10 +62,10 @@ public class ViewDBFController implements Initializable {
         listPerson.addAll(list);
         tablePerson.setItems(listPerson);
     }
-
-    public void on_save() throws IOException {
-        String file = filename.getText()+".xls";
-        ExcelReader.saveFile(listPerson,file);
-    }
+//
+//    public void on_save() throws IOException {
+//        String file = filename.getText()+".xls";
+//        ExcelReader.saveFile(listPerson,file,);
+//    }
 
 }

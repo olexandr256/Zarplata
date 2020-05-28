@@ -4,12 +4,19 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Person {
+    //імя
     private StringProperty name;
+    //прізвище
     private StringProperty fam;
+    //побатькові
     private StringProperty ot;
+    //ідентифікаційний код
     private StringProperty inn;
+    //
     private StringProperty lstbl;
+    //номер карточки
     private StringProperty card_no;
+    //сума зарплати
     private StringProperty rlsum;
 
     @Override
