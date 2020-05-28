@@ -6,10 +6,16 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="оновлення дизайну">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="додано колонку, редагування назви файла, активність деяких кнопок">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Zarplata_jar/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Zarplata_jar/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Zarplata_jar/launch4j.log" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Zarplata_jar/launch4j.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Zarplata_jar/list.ini" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Zarplata_jar/list.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/OpenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/OpenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Zarplata_jar/zarplata.zip" beforeDir="false" />
+    </list>
+    <list id="c26635c8-453f-4348-bf69-bb3714b16543" name="update1.1.1" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Zarplata_jar/zarplata.exe" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Zarplata_jar/zarplata.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +83,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/.idea/workspace.xml">
+      <ranges>
+        <range start1="8" end1="9" start2="8" end2="10" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" />
+        <range start1="10" end1="12" start2="11" end2="12" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" />
+        <range start1="217" end1="217" start2="217" end2="218" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" />
+        <range start1="235" end1="236" start2="236" end2="237" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" />
+        <range start1="244" end1="245" start2="245" end2="253" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" />
+        <range start1="265" end1="266" start2="273" end2="275" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" />
+        <range start1="288" end1="289" start2="297" end2="298" changelist="c26635c8-453f-4348-bf69-bb3714b16543" />
+        <range start1="291" end1="292" start2="300" end2="301" changelist="c26635c8-453f-4348-bf69-bb3714b16543" />
+        <range start1="320" end1="320" start2="329" end2="333" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" />
+      </ranges>
+    </file>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1aWnq1xKmDlq9XVp2CEWeCla2aw" />
@@ -215,6 +236,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+      <changelist id="c26635c8-453f-4348-bf69-bb3714b16543" name="update1.1.1" comment="" />
       <created>1359379246138</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -233,7 +255,7 @@
       <workItem from="1590676834836" duration="249000" />
       <workItem from="1590678460974" duration="3230000" />
       <workItem from="1590683936115" duration="8150000" />
-      <workItem from="1590696706757" duration="2932000" />
+      <workItem from="1590696706757" duration="3468000" />
     </task>
     <task id="LOCAL-00001" summary="оновлення дизайну">
       <created>1590699412078</created>
@@ -242,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590699412078</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="додано колонку, редагування назви файла, активність деяких кнопок">
+      <created>1590699912658</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1590699912658</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +292,8 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="оновлення дизайну" />
-    <option name="LAST_COMMIT_MESSAGE" value="оновлення дизайну" />
+    <MESSAGE value="додано колонку, редагування назви файла, активність деяких кнопок" />
+    <option name="LAST_COMMIT_MESSAGE" value="додано колонку, редагування назви файла, активність деяких кнопок" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1590687112930">
@@ -318,6 +348,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590689990606" />
+    <state x="431" y="279" key="VCS.ChangelistChooser" timestamp="1590699942927">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="431" y="279" key="VCS.ChangelistChooser/0.0.1366.728@0.0.1366.728" timestamp="1590699942927" />
     <state x="567" y="280" key="VCS.EditChangelistDialog" timestamp="1590699289628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
