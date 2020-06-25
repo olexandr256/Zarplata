@@ -1,15 +1,19 @@
 package sample;
 
 import javafx.collections.ObservableList;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import sample.models.Person;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.Date;
+import java.util.Iterator;
 
 public class ExcelReader {
     public static void saveFile(ObservableList<Person> listPerson, String filename, String platizh) throws IOException {
@@ -56,5 +60,25 @@ public class ExcelReader {
         book.write(fs);
         book.close();
         fs.close();
+    }
+
+    public static void  rewrite(String filename, String platizh) throws IOException {
+
+        FileInputStream is = new FileInputStream(filename);
+        Workbook book = new HSSFWorkbook(is);
+
+        Sheet sheet = book.getSheetAt(0);
+        Iterator<Row> iterator = sheet.iterator();
+        iterator.next();
+        while(iterator.hasNext()){
+            Row row = iterator.next();
+            row.getCell(3).setCellValue(platizh);
+        }
+
+        is.close();
+        FileOutputStream os = new FileOutputStream(filename);
+        book.write(os);
+        os.close();
+//        System.out.println("успішно записано "+"рядків");
     }
 }
