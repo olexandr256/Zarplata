@@ -68,7 +68,7 @@
       <TableView fx:id="tableFiles" editable="true" onMouseClicked="#on_selected" stylesheets="@css/table.css" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="numCol" prefWidth="48.0" styleClass="table-column-head" text="#" />
-          <TableColumn fx:id="nameCol" onEditCommit="#on_edit_name" prefWidth="233.0" styleClass="table-column-head" text="Назва файла" />
+          <TableColumn fx:id="nameCol" prefWidth="233.0" styleClass="table-column-head" text="Назва файла" />
             <TableColumn fx:id="dateCol" prefWidth="200.0" styleClass="table-column-head" text="Дата" />
             <TableColumn fx:id="platizhCol" maxWidth="234.0" minWidth="-1.0" onEditCommit="#on_edit_platizh" prefWidth="216.0" text="Призначення платежу" />
         </columns>

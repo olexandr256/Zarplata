@@ -31,7 +31,7 @@ public class OpenController implements Initializable {
     @FXML    private Button B_export;
     @FXML    private Button B_delete;
     @FXML    private Button B_open;
-
+    @FXML    private Hyperlink update;
 
     @FXML    private TableView<FileList> tableFiles;
     @FXML    private TableColumn<FileList, String> numCol;
@@ -58,7 +58,6 @@ public class OpenController implements Initializable {
 
         tableFiles.setItems(fileList);
         tableFiles.setEditable(true);
-//        nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         platizhCol.setCellFactory(TextFieldTableCell.forTableColumn());
     }
     /*
@@ -167,8 +166,6 @@ public class OpenController implements Initializable {
         return new File(filename);
     }
 
-
-
     //копіювати файл у корін програми
     private void importFile() throws IOException {
         FileChooser fileChooser1 = new FileChooser();
@@ -246,11 +243,9 @@ public class OpenController implements Initializable {
         публічні методи для роботи із кнопками
      */
 
-    //натискання кнопки "оновити"
+    //натискання кнопки "оновити програму"
     public void on_update() throws IOException {
-        readRows();
-        tableFiles.setItems(fileList);
-        message.setText(" ");
+        
     }
 
     //натискання кнопки "імпорт"
