@@ -58,7 +58,7 @@ public class OpenController implements Initializable {
 
         tableFiles.setItems(fileList);
         tableFiles.setEditable(true);
-        nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
+//        nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         platizhCol.setCellFactory(TextFieldTableCell.forTableColumn());
     }
     /*
@@ -147,6 +147,28 @@ public class OpenController implements Initializable {
     /*
         методи для роботи із даними імпорт, експорт, відкрити dbf або xls файли
      */
+    private File filterFile(File file) {
+        String filename = file.getName().substring(0, file.getName().length() - 4);
+        String format = file.getName().substring(file.getName().length() - 4);
+
+        do {
+            int beg = filename.indexOf("(");
+
+            if (beg != -1) {
+                int end = filename.indexOf(")");
+                String digit = filename.substring(beg + 1, end);
+                int index = Integer.parseInt(digit) + 1;
+                filename = filename.substring(0, beg + 1) + index + ")" + format;
+            } else {
+                filename = filename + "(1)" + format;
+            }
+        } while (new File(filename).exists());
+
+        return new File(filename);
+    }
+
+
+
     //копіювати файл у корін програми
     private void importFile() throws IOException {
         FileChooser fileChooser1 = new FileChooser();
@@ -159,9 +181,19 @@ public class OpenController implements Initializable {
 
         if (selectedFile != null) {
             File newFile = new File(selectedFile.getName());
-            if(!newFile.exists())
-            Files.copy(selectedFile.toPath(),newFile.toPath());
-            addRow(selectedFile);
+
+            //Якщо файла не існує додати до каталогу, якщо існує змінити назву із індексом на один більше
+            if(!newFile.exists()){
+                Files.copy(selectedFile.toPath(),newFile.toPath());
+                addRow(newFile);
+            }
+            else{
+                File newF = filterFile(newFile);
+                Files.copy(selectedFile.toPath(),newF.toPath());
+                addRow(newF);
+            }
+
+
             message.setText("файл \""+selectedFile.getName()+"\" імпортовано");
         }
     }
@@ -246,13 +278,14 @@ public class OpenController implements Initializable {
             ArrayList<Person> list = DBFViewer.load(selectFileName);
 
             String filename  = selectFileName.substring(0,selectFileName.length()-4);
-            String newFileName = filename+".xls";
+            System.out.println(filterFile(new File (filename+".xls")));
+            File newFileName = filterFile(new File (filename+".xls"));
 
             listP.clear();
             listP.addAll(list);
-            ExcelReader.saveFile(listP,newFileName,select.getPlatizh());// RLKOD_Z - призначення платежу
+            ExcelReader.saveFile(listP,newFileName.getName(),select.getPlatizh());// RLKOD_Z - призначення платежу
 
-            addRow(new File(newFileName),select.getPlatizh());
+            addRow(newFileName,select.getPlatizh());
         }
 
     }
@@ -300,33 +333,36 @@ public class OpenController implements Initializable {
         B_open.setDisable(false);
 
     }
-    public void on_edit_name(TableColumn.CellEditEvent event) throws IOException {
-        FileList select = tableFiles.getSelectionModel().getSelectedItem();
-        //   стара назва файлу
-        Path oldname = new File(select.getName()+"."+select.getFormat()).toPath();
-
-        //   видалення старого запису із списку
-        fileList.remove(select);
-        //заміна назви файлу на нову
-        select.setName(event.getNewValue().toString());
-
-        //   нова назва файлу
-        Path newname = new File(select.getName()+"."+select.getFormat()).toPath();
-
-        //  копіювання файла
-        Files.copy(oldname,newname);
-        //  видалення старого файла
-        Files.delete(oldname);
-
-        //додати новий файл у таблицю
-        addRow(new File(select.getName()+"."+select.getFormat()),select.getPlatizh());
-    }
+//    public void on_edit_name(TableColumn.CellEditEvent event) throws IOException {
+//        FileList select = tableFiles.getSelectionModel().getSelectedItem();
+//        //   стара назва файлу
+//        Path oldname = new File(select.getName()+"."+select.getFormat()).toPath();
+//
+//        //   видалення старого запису із списку
+//        fileList.remove(select);
+//        //заміна назви файлу на нову
+//        select.setName(event.getNewValue().toString());
+//
+//        //   нова назва файлу
+//        Path newname = new File(select.getName()+"."+select.getFormat()).toPath();
+//
+//        //  копіювання файла
+//        Files.copy(oldname,newname);
+//        //  видалення старого файла
+//        Files.delete(oldname);
+//
+//        //додати новий файл у таблицю
+//        addRow(new File(select.getName()+"."+select.getFormat()),select.getPlatizh());
+//    }
     public void on_edit_platizh(TableColumn.CellEditEvent event) throws IOException {
         FileList select = tableFiles.getSelectionModel().getSelectedItem();
         fileList.remove(select);
         select.setPlatizh(event.getNewValue().toString());
-        addRow(new File(select.getName()+"."+select.getFormat()),select.getPlatizh());
+        File newfile = new File(select.getName()+"."+select.getFormat());
+        addRow(newfile,select.getPlatizh());
+        ExcelReader.rewrite(newfile.getName(),select.getPlatizh());
     }
+
     //натискання кнопки "відкрити"
     public void open() throws IOException {
         FileList select = tableFiles.getSelectionModel().getSelectedItem();
