@@ -111,7 +111,7 @@ public class OpenController implements Initializable {
         String newFilename = filename.substring(0,filename.length()-4);
 
         FileList row = new FileList(format,newFilename,date,platizh);
-        System.out.println(row.toString());
+//        System.out.println(row.toString());
         fileList.add(row);
 
         saveRows();
@@ -278,7 +278,7 @@ public class OpenController implements Initializable {
             ArrayList<Person> list = DBFViewer.load(selectFileName);
 
             String filename  = selectFileName.substring(0,selectFileName.length()-4);
-            System.out.println(filterFile(new File (filename+".xls")));
+//            System.out.println(filterFile(new File (filename+".xls")));
             File newFileName = filterFile(new File (filename+".xls"));
 
             listP.clear();
@@ -308,9 +308,7 @@ public class OpenController implements Initializable {
 
     //вибір файла із списку tableView
     public void on_selected(MouseEvent mouseEvent) throws IOException {
-//        if(mouseEvent.getClickCount() == 2){
-//            open();
-//        }
+
         if(mouseEvent.getClickCount() == 1){
             FileList select = tableFiles.getSelectionModel().getSelectedItem();
             if(select != null){
@@ -326,12 +324,10 @@ public class OpenController implements Initializable {
                     B_convert.setDisable(false);
                 }
             }
-
         }
 
         B_delete.setDisable(false);
         B_open.setDisable(false);
-
     }
 //    public void on_edit_name(TableColumn.CellEditEvent event) throws IOException {
 //        FileList select = tableFiles.getSelectionModel().getSelectedItem();
@@ -360,7 +356,10 @@ public class OpenController implements Initializable {
         select.setPlatizh(event.getNewValue().toString());
         File newfile = new File(select.getName()+"."+select.getFormat());
         addRow(newfile,select.getPlatizh());
-        ExcelReader.rewrite(newfile.getName(),select.getPlatizh());
+        if(select.getFormat().equals("XLS")){
+            ExcelReader.rewrite(newfile.getName(),select.getPlatizh());
+        }
+
     }
 
     //натискання кнопки "відкрити"
@@ -372,7 +371,7 @@ public class OpenController implements Initializable {
         }
         if(format.equals("dbf")){
             open_dbf(select.getName()+"."+select.getFormat());
-            System.out.println(select.getName()+"."+select.getFormat());
+//            System.out.println(select.getName()+"."+select.getFormat());
         }
     }
 }
