@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -12,6 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import sample.models.Person;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 
@@ -79,6 +81,38 @@ public class ExcelReader {
         FileOutputStream os = new FileOutputStream(filename);
         book.write(os);
         os.close();
-//        System.out.println("успішно записано "+"рядків");
+    }
+
+    public static ObservableList<Person> readFile(String filename) throws IOException {
+        FileInputStream is = new FileInputStream(filename);
+        XSSFWorkbook book = new XSSFWorkbook(is);
+        XSSFSheet sheet = book.getSheetAt(0);
+        ObservableList<Person> list = FXCollections.observableArrayList();
+
+        Iterator<Row> iterator = sheet.iterator();
+        iterator.next();
+        while(iterator.hasNext()){
+            /**
+             * дізнатися які дані у яких стовпцях знаходяться
+             */
+            Row row = iterator.next();
+            String name = String.valueOf(row.getCell(6));
+            String fam = String.valueOf(row.getCell(5));
+            String ot = String.valueOf(row.getCell(7));
+            String INN = String.valueOf(row.getCell(9));
+            String LSTBL = String.valueOf(row.getCell(4));
+
+            String CARD_NO = String.valueOf(row.getCell(3));
+            String RLSUM = String.valueOf(row.getCell(8));
+            String RLKOD = String.valueOf(row.getCell(10)); //неважливе поле
+
+            list.add(new Person(name,fam,ot,INN,LSTBL,CARD_NO,RLSUM));
+        }
+
+        is.close();
+
+        return list;
+//        saveFile(list,"новий "+filename,"");
+
     }
 }
