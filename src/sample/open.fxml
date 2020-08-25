@@ -30,7 +30,7 @@
                      <HBox.margin>
                         <Insets bottom="1.0" right="5.0" />
                      </HBox.margin></Button>
-                  <Button fx:id="B_convert" disable="true" layoutX="384.0" layoutY="10.0" mnemonicParsing="false" onAction="#on_convert" prefHeight="47.0" prefWidth="124.0" styleClass="b_all" stylesheets="@css/buttons.css" text="Конвертувати">
+                  <Button fx:id="B_convert" layoutX="384.0" layoutY="10.0" mnemonicParsing="false" onAction="#on_convert" prefHeight="47.0" prefWidth="124.0" styleClass="b_all" stylesheets="@css/buttons.css" text="Конвертувати">
                      <HBox.margin>
                         <Insets bottom="1.0" right="5.0" />
                      </HBox.margin>
