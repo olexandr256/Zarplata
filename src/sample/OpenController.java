@@ -104,13 +104,15 @@ public class OpenController implements Initializable {
     //додати рядок у список файлів
     private void addRow(File selectedFile,String platizh) throws IOException {
         String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
-        String filename = selectedFile.getName();
-        String format = filename.substring(filename.length()-3).toUpperCase();
+        String oldFileName = selectedFile.getName();
 
-        String newFilename = filename.substring(0,filename.length()-4);
+        int point = oldFileName.lastIndexOf(".");
+        //розподіл назви файла та його формат
 
-        FileList row = new FileList(format,newFilename,date,platizh);
-//        System.out.println(row.toString());
+        String newFileName = oldFileName.substring(0,point);
+        String format = oldFileName.substring(point+1).toUpperCase();
+
+        FileList row = new FileList(format,newFileName,date,platizh);
         fileList.add(row);
 
         saveRows();
@@ -146,9 +148,15 @@ public class OpenController implements Initializable {
     /*
         методи для роботи із даними імпорт, експорт, відкрити dbf або xls файли
      */
+
+    //перевірка одинакових файлів
     private File filterFile(File file) {
-        String filename = file.getName().substring(0, file.getName().length() - 4);
-        String format = file.getName().substring(file.getName().length() - 4);
+        String oldFileName = file.getName();
+        int point = oldFileName.lastIndexOf(".");
+
+        //розподіл назви файла та його формат
+        String filename = oldFileName.substring(0,point);
+        String format = oldFileName.substring(point+1);
 
         do {
             int beg = filename.indexOf("(");
@@ -157,9 +165,9 @@ public class OpenController implements Initializable {
                 int end = filename.indexOf(")");
                 String digit = filename.substring(beg + 1, end);
                 int index = Integer.parseInt(digit) + 1;
-                filename = filename.substring(0, beg + 1) + index + ")" + format;
+                filename = filename.substring(0, beg + 1) + index + ")." + format;
             } else {
-                filename = filename + "(1)" + format;
+                filename = filename + "(1)." + format;
             }
         } while (new File(filename).exists());
 
@@ -171,6 +179,8 @@ public class OpenController implements Initializable {
         FileChooser fileChooser1 = new FileChooser();
         fileChooser1.setTitle("Імпортувати файл");
         fileChooser1.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Таблиця EXCEL", "*.xlsx"),
+                new FileChooser.ExtensionFilter("Таблиця EXCEL (2003)", "*.xls"),
                 new FileChooser.ExtensionFilter("Таблиця DBF", "*.dbf"),
                 new FileChooser.ExtensionFilter("всі файли", "*.*"));
         Stage stage = new Stage();
@@ -194,10 +204,11 @@ public class OpenController implements Initializable {
             message.setText("файл \""+selectedFile.getName()+"\" імпортовано");
         }
     }
+
     private void exportFile(String filename) throws IOException {
         String format = filename.substring(filename.length()-3).toLowerCase();
 
-        if(format.equals("xls")){
+        if(format.equals("xls")||format.equals("xlsx")){
             File oldFile = new File(filename);
             FileChooser fileChooser2 = new FileChooser();
             fileChooser2.setTitle("Експортувати файл");
@@ -268,19 +279,23 @@ public class OpenController implements Initializable {
 
         String format = select.getFormat().toLowerCase();
 //        System.out.println(format);
-        if (format.equals("dbf")){
-            ObservableList<Person> listP = FXCollections.observableArrayList();
-            ArrayList<Person> list = DBFViewer.load(selectFileName);
-
-            String filename  = selectFileName.substring(0,selectFileName.length()-4);
+        ObservableList<Person> listP = FXCollections.observableArrayList();
+        String filename  = selectFileName.substring(0,selectFileName.length()-4);
 //            System.out.println(filterFile(new File (filename+".xls")));
-            File newFileName = filterFile(new File (filename+".xls"));
-
+        File newFileName = filterFile(new File (filename+".xls"));
+        if (format.equals("dbf")){
+            ArrayList<Person> list = DBFViewer.load(selectFileName);
             listP.clear();
             listP.addAll(list);
-            ExcelReader.saveFile(listP,newFileName.getName(),select.getPlatizh());// RLKOD_Z - призначення платежу
+            ExcelReader.saveFile(listP,"convert-"+newFileName.getName(),select.getPlatizh());// RLKOD_Z - призначення платежу
 
-            addRow(newFileName,select.getPlatizh());
+            addRow(new File("convert-"+newFileName.getName()),select.getPlatizh());
+        } else
+        if (format.equals("xls")||format.equals("xlsx")){
+            listP.clear();
+            listP.addAll(ExcelReader.readFile(selectFileName));
+            ExcelReader.saveFile(listP,"convert-"+newFileName.getName(),select.getPlatizh());// RLKOD_Z - призначення платежу
+            addRow(new File("convert-"+newFileName.getName()),select.getPlatizh());
         }
 
     }
@@ -309,14 +324,12 @@ public class OpenController implements Initializable {
             if(select != null){
                 message.setText(select.getName()+"."+select.getFormat());
 
-                if (select.getFormat().equals("XLS")){
+                if (select.getFormat().equals("XLS") || select.getFormat().equals("XLSX")){
                     B_export.setDisable(false);
-                    B_convert.setDisable(true);
                 }
 
                 if(select.getFormat().equals("DBF")) {
                     B_export.setDisable(true);
-                    B_convert.setDisable(false);
                 }
             }
         }
