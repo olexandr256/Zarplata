@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="xmlbeans-2.6.01">
+    <CLASSES>
+      <root url="jar://H:/Install-Setup/develop/library/poi-3.12/ooxml-lib/xmlbeans-2.6.0.jar!/" />
+      <root url="jar://H:/Install-Setup/develop/library/poi-3.12/poi-3.12-20150511.jar!/" />
+      <root url="jar://H:/Install-Setup/develop/library/poi-3.12/poi-examples-3.12-20150511.jar!/" />
+      <root url="jar://H:/Install-Setup/develop/library/poi-3.12/poi-excelant-3.12-20150511.jar!/" />
+      <root url="jar://H:/Install-Setup/develop/library/poi-3.12/poi-ooxml-3.12-20150511.jar!/" />
+      <root url="jar://H:/Install-Setup/develop/library/poi-3.12/poi-ooxml-schemas-3.12-20150511.jar!/" />
+      <root url="jar://H:/Install-Setup/develop/library/poi-3.12/poi-scratchpad-3.12-20150511.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

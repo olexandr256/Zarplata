@@ -182,7 +182,7 @@ public class OpenController implements Initializable {
                 new FileChooser.ExtensionFilter("Таблиця EXCEL", "*.xlsx"),
                 new FileChooser.ExtensionFilter("Таблиця EXCEL (2003)", "*.xls"),
                 new FileChooser.ExtensionFilter("Таблиця DBF", "*.dbf"),
-                new FileChooser.ExtensionFilter("всі файли", "*.*"));
+                new FileChooser.ExtensionFilter("Всі файли", "*.*"));
         Stage stage = new Stage();
         File selectedFile = fileChooser1.showOpenDialog(stage);
 
@@ -293,7 +293,7 @@ public class OpenController implements Initializable {
         } else
         if (format.equals("xls")||format.equals("xlsx")){
             listP.clear();
-            listP.addAll(ExcelReader.readFile(selectFileName));
+            listP.addAll(ExcelReader.readFile(selectFileName,format));
             ExcelReader.saveFile(listP,"convert-"+newFileName.getName(),select.getPlatizh());// RLKOD_Z - призначення платежу
             addRow(new File("convert-"+newFileName.getName()),select.getPlatizh());
         }
