@@ -2,6 +2,7 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -269,7 +270,6 @@ public class OpenController implements Initializable {
     public void on_export() throws IOException {
         FileList select = tableFiles.getSelectionModel().getSelectedItem();
         exportFile(select.getName()+"."+select.getFormat());
-
     }
 
     //натискання кнопки "конвертувати"
@@ -382,4 +382,5 @@ public class OpenController implements Initializable {
 //            System.out.println(select.getName()+"."+select.getFormat());
         }
     }
+
 }
